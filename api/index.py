@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file
 from flask_bootstrap import Bootstrap5
 from io import BytesIO
-import segno
 import qrcode
 import os
 
@@ -18,14 +17,13 @@ def home():
 def makeQr():
     if request.method == 'POST':
         url_link = request.form['link']
-        img=segno.make(url_link)
         name = request.form['name']
-        box_size = request.form['box_size']
-        fill_color = request.form['fill_color']
-        back_color = request.form['back_color']
-        saved_qr = name + '.png'
-        img.save(saved_qr, dark=fill_color, light=back_color, scale=box_size)
-        return send_file(saved_qr, mimetype='image/png', as_attachment=True, download_name=saved_qr)
+        img=qrcode.make(url_link)
+        saved_qr=name+'.png'
+        img_bytes_io = BytesIO()
+        img.save(img_bytes_io)
+        img_bytes_io.seek(0)
+        return send_file(img_bytes_io, mimetype='image/png', as_attachment=True, download_name=saved_qr)
 
 
 if __name__ == '__main__':
