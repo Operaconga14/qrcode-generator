@@ -25,7 +25,7 @@ def makeQr():
         back_color = request.form['back_color']
         saved_qr = name + '.png'
         img.save(saved_qr, dark=fill_color, light=back_color, scale=box_size)
-        return send_file(saved_qr,mimetype='image/png', as_attachment=True, download_name=saved_qr)
+        return send_file(saved_qr, mimetype='image/png', as_attachment=True, download_name=saved_qr)
 
 
 if __name__ == '__main__':
