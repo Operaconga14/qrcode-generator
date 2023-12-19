@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{bootstrap.load_css()}}
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">QR-CODE GENERATOR</h1>
+
+        <form action="{{url_for('home')}}" class="mt-5" method="post">
+            <div class="from-group">
+                <label class="text-start" for="link">Input</label>
+                <p>Type or Paste the link or text you want to convert to a qrcode ⇊ </p>
+                <input type="text" name="link" id="link" class="form-control">
+            </div>
+            <div class="from-group">
+                <label class="text-start" for="name">New Svaing name</label>
+                <p>Give your qrcode a unique name ⇊ </p>
+                <input type="text" name="name" id="name" class="form-control">
+            </div>
+            <div class="justify-content-between mt-3">
+                <button class="btn-primary btn" type="submit">Generate</button>
+
+            </div>
+        </form>
+        <div class="conatiner mt-4">
+            {{qr_message}}
+            <img src="{{img}}" alt="">
+        </div>
+    </div>
+</body>
+</html>
