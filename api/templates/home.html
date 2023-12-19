@@ -10,7 +10,7 @@
     <div class="container mt-5">
         <h1 class="text-center">QR-CODE GENERATOR</h1>
 
-        <form action="{{url_for('home')}}" class="mt-5" method="post">
+        <form action="" class="mt-5" method="post">
             <div class="from-group">
                 <label class="text-start" for="link">Input</label>
                 <p>Type or Paste the link or text you want to convert to a qrcode ⇊ </p>
@@ -27,8 +27,7 @@
             </div>
         </form>
         <div class="conatiner mt-4">
-            {{qr_message}}
-            <img src="{{img}}" alt="">
+            <p>{{qr_message}}</p>
         </div>
     </div>
 </body>
