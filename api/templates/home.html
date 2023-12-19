@@ -6,33 +6,49 @@
     {{bootstrap.load_css()}}
     <title>{{title}}</title>
 </head>
-<body>
+<body class="p-2 pb-5">
     <div class="container mt-5">
         <h1 class="text-center">QR-CODE GENERATOR</h1>
 
         <form action="{{url_for('makeQr')}}" class="mt-5" method="post">
-            <div class="from-group">
+            <div class="from-group mt-2">
                 <label class="text-start" for="link">Input</label>
                 <p>Type or Paste the link or text you want to convert to a qrcode ⇊ </p>
                 <input type="text" name="link" id="link" class="form-control">
             </div>
-            <div class="from-group">
+            <div class="from-group mt-2">
                 <label class="text-start" for="name">New Svaing name</label>
                 <p>Give your qrcode a unique name ⇊ </p>
                 <input type="text" name="name" id="name" class="form-control">
             </div>
+            <div class="mt-3">
+                <div class="card p-3">
+                    <div class="card-head">
+                        Configuration
+                    </div>
+                    <div class="card-body">
+                        <div class="from-group mt-2">
+                            <label class="text-start" for="box_size">Box Size</label>
+                            <p>Type or Paste the link or text you want to convert to a qrcode ⇊ </p>
+                            <input type="number" name="box_size" id="box_size" class="form-control">
+                        </div>
+                        <div class="from-group mt-2">
+                            <label class="text-start" for="back_color">QRCode Background Color</label>
+                            <p>Choose a color for the background </p>
+                            <input type="color" name="back_color" id="back_color" class="form-control" style="text-transform: lowercase;">
+                        </div>
+                        <div class="from-group mt-2">
+                            <label class="text-start" for="fill_color">QRCode Foreground Color</label>
+                            <p>Select the color you want as the code itself </p>
+                            <input type="color" name="fill_color" id="fill_color" class="form-control" style="text-transform: lowercase;">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="justify-content-between mt-3">
                 <button class="btn-primary btn" type="submit">Generate</button>
-
             </div>
         </form>
-        <div class="conatiner mt-4">
-            <p>{{qr_message}}</p>
-
-            <div class="text-center">
-                <img src="{{url_for('static', filename='imgs/{{saved_qr}}')}}" alt="">
-            </div>
-
         </div>
     </div>
 </body>

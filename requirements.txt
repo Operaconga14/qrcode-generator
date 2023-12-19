@@ -3,3 +3,4 @@ qrcode==7.4.2
 PyQRCode==1.2.1
 requests==2.28.2
 Bootstrap-Flask==2.3.3
+segno==1.6.0
